@@ -7,9 +7,59 @@ export default function CrankPage() {
             <Gallery />
             <Questions />
             <Pricing />
+            <Blog />
         </div>
     )
 }
+
+function Blog() {
+    return (
+        <div className="text-black py-10 dark:bg-black dark:border dark:text-white border-white">
+            <p className="text-red-500 text-center font-bold text-sm">LATEST BLOG AND NEWS</p>
+            <h1 className="text-center text-2xl md:text-5xl font-bold my-4">
+                Our Best Recent Blog And News
+            </h1>
+            <div className="flex lg:flex-row justify-center flex-col gap-4 my-10 mx-15">
+                <BlogCard date={10} head={"Your Trusted Car Service Provider Keeping"} img={"https://themehealer.com/php-template/crank-php/assets/images/blog/blog-1-2.jpg"} />
+                <BlogCard date={15} head={"Drive Stress-Free Professional Care for Your Car"} img={"https://themehealer.com/php-template/crank-php/assets/images/blog/blog-1-3.jpg"} />
+                <BlogCard date={20} head={"Reliable Roadside Assistance SpeedySpark Car Care"} img={"https://themehealer.com/php-template/crank-php/assets/images/blog/blog-1-1.jpg"} />
+            </div>
+        </div>
+    )
+}
+
+function BlogCard({ img, date, head }) {
+    return (
+        <div className="bg-white rounded-2xl p-6 flex flex-col flex-1 gap-4">
+            <div className="relative w-full">
+                <img className="rounded-2xl w-full" src={`${img}`}></img>
+                <div className="absolute top-45 right-2 h-20 w-20 rounded-full flex justify-center items-center bg-red-500 text-center">
+                    <p className="text-white font-semibold">{date}<br /> OCT</p>
+                </div>
+            </div>
+            <div className="flex flex-row gap-2">
+                <div className="flex flex-row gap-1 items-center">
+                    <img className="h-4 w-auto" src="admin.png"></img>
+                    <p>By admin</p>
+                </div>
+                <div className="flex flex-row gap-1 items-center">
+                    <img className="h-4 w-auto" src="comment.png"></img>
+                    <p>0 Comment</p>
+                </div>
+            </div>
+            <p className="text-2xl font-semibold">
+                {head}
+            </p>
+            <div>
+                <p className="font-semibold inline-block mr-2">
+                    READ MORE
+                </p>
+                <img className="inline-block h-5 w-auto" src="red-arrow.png" />
+            </div>
+        </div>
+    )
+}
+
 
 function Pricing() {
     return (
@@ -19,22 +69,22 @@ function Pricing() {
                 Our Pricing Plan
             </h1>
             <div className="flex flex-row flex-wrap justify-center gap-4 my-10">
-                <PricingCard head={"Esay"} img={"broken-car.png"} price={10} para={"Car service is essential for maintaining performance"} para2={"and longevity of vehicle. From oil changes"}/>
-                <PricingCard head={"Free"} img={"chassis.png"} price={0} para={"Car service is essential for maintaining performance"} para2={"and longevity of vehicle. From oil changes"}/>
-                <PricingCard head={"Free"} img={"disc-brake.png"} price={30} para={"Car service is essential for maintaining performance"} para2={"and longevity of vehicle. From oil changes"}/>
+                <PricingCard head={"Esay"} img={"broken-car.png"} price={10} para={"Car service is essential for maintaining performance"} para2={"and longevity of vehicle. From oil changes"} />
+                <PricingCard head={"Free"} img={"chassis.png"} price={0} para={"Car service is essential for maintaining performance"} para2={"and longevity of vehicle. From oil changes"} />
+                <PricingCard head={"Free"} img={"disc-brake.png"} price={30} para={"Car service is essential for maintaining performance"} para2={"and longevity of vehicle. From oil changes"} />
             </div>
         </div>
     )
 }
 
-function PricingCard({head, para, para2, price, img}) {
+function PricingCard({ head, para, para2, price, img }) {
     return (
-        <div className="flex flex-col gap-4 bg-white p-10 rounded-3xl">
+        <div className="group flex flex-col gap-4 bg-white p-10 rounded-3xl">
             <h2 className="text-4xl">{head}</h2>
             <p className="text-sm">{para}<br /> {para2}</p>
             <div className="flex border-b border-b-gray-300 py-4 flex-row justify-between">
                 <p><span className="font-medium text-5xl">${price}</span>&nbsp; /month</p>
-                <div className="bg-red-500 p-3 rounded-full h-14 w-14 flex items-center justify-center">
+                <div className="group-hover:bg-red-500 bg-gray-300 p-3 rounded-full h-14 w-14 flex items-center justify-center">
                     <img className="h-8 w-auto" src={`${img}`}></img>
                 </div>
             </div>
@@ -44,7 +94,7 @@ function PricingCard({head, para, para2, price, img}) {
                 <Lists text="Mistakes To Avoid" />
                 <Lists text="Your Event, Your Memories" />
             </div>
-            <button className="w-full cursor-pointer hover:bg-red-500 hover:text-white rounded-full bg-gray-200 py-4 font-semibold">
+            <button className="w-full cursor-pointer group-hover:bg-red-500 hover:text-white rounded-full bg-gray-200 py-4 font-semibold">
                 GET STARTED NOW
             </button>
         </div>

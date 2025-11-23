@@ -6,6 +6,47 @@ export default function CrankPage() {
             <AboutUs />
             <Gallery />
             <Questions />
+            <Pricing />
+        </div>
+    )
+}
+
+function Pricing() {
+    return (
+        <div className="text-black py-10 dark:bg-black dark:border dark:text-white border-white">
+            <p className="text-red-500 text-center font-bold text-sm">PRICING PLAN</p>
+            <h1 className="text-center text-2xl md:text-5xl font-bold my-4">
+                Our Pricing Plan
+            </h1>
+            <div className="flex flex-row flex-wrap justify-center gap-4 my-10">
+                <PricingCard head={"Esay"} img={"broken-car.png"} price={10} para={"Car service is essential for maintaining performance"} para2={"and longevity of vehicle. From oil changes"}/>
+                <PricingCard head={"Free"} img={"chassis.png"} price={0} para={"Car service is essential for maintaining performance"} para2={"and longevity of vehicle. From oil changes"}/>
+                <PricingCard head={"Free"} img={"disc-brake.png"} price={30} para={"Car service is essential for maintaining performance"} para2={"and longevity of vehicle. From oil changes"}/>
+            </div>
+        </div>
+    )
+}
+
+function PricingCard({head, para, para2, price, img}) {
+    return (
+        <div className="flex flex-col gap-4 bg-white p-10 rounded-3xl">
+            <h2 className="text-4xl">{head}</h2>
+            <p className="text-sm">{para}<br /> {para2}</p>
+            <div className="flex border-b border-b-gray-300 py-4 flex-row justify-between">
+                <p><span className="font-medium text-5xl">${price}</span>&nbsp; /month</p>
+                <div className="bg-red-500 p-3 rounded-full h-14 w-14 flex items-center justify-center">
+                    <img className="h-8 w-auto" src={`${img}`}></img>
+                </div>
+            </div>
+            <div>
+                <Lists text="Mistakes To Avoid" />
+                <Lists text="Winning for Your Startup" />
+                <Lists text="Mistakes To Avoid" />
+                <Lists text="Your Event, Your Memories" />
+            </div>
+            <button className="w-full cursor-pointer hover:bg-red-500 hover:text-white rounded-full bg-gray-200 py-4 font-semibold">
+                GET STARTED NOW
+            </button>
         </div>
     )
 }
